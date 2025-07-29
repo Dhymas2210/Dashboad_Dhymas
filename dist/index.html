@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Pemodelan Spasial dan Temporal Konsentrasi CO di DKI Jakarta" />
+    <meta name="author" content="" />
+    <title>Pemodelan CO DKI Jakarta</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+      .logo-stis {
+  height: 60px; /* Ukuran lebih kecil */
+  width: auto;
+  margin-right: 15px;
+}
+
+.judul-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+      .goal-box {
+        background-color: white;
+        color: #333;
+        border-radius: 12px;
+        padding: 10px;
+        margin: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      .goal-box:hover {
+        transform: scale(1.03);
+      }
+
+.manfaat-btn.active {
+  background-color: white;
+  color: #0d6efd;
+  font-weight: bold;
+}
+.manfaat-card {
+  background: white;
+  color: #0d6efd;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.manfaat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.manfaat-card h5 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Navbar animation */
+      .navbar {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: navbarFadeIn 1s ease forwards;
+        animation-delay: 0.2s;
+      }
+      @keyframes navbarFadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .navbar-nav .nav-link {
+        position: relative;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ff6b00;
+        transition: width 0.3s ease;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #ff6b00;
+        transform: translateY(-2px);
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body id="page-top">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+      <div class="container">
+       <div class="navbar-brand d-flex align-items-center">
+  <img src="assets/img/logi.png" alt="" class="logo-stis">
+  <span class="judul-header">SPASIAL CO JAKARTA</span>
+</div>
+
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+          Menu <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#permasalahan">Permasalahan</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#tujuan">Tujuan</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#ruanglingkup">Ruang Lingkup</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#manfaat">Manfaat</a></li>
+          <li class="nav-item dropdown mx-0 mx-lg-1">
+  <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Hasil Pemodelan
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end text-center">
+    <li><a class="dropdown-item" href="2020.html">Tahun 2020</a></li>
+    <li><a class="dropdown-item" href="2021.html">Tahun 2021</a></li>
+    <li><a class="dropdown-item" href="2022.html">Tahun 2022</a></li>
+    <li><a class="dropdown-item" href="2023.html">Tahun 2023</a></li>
+    <li><a class="dropdown-item" href="2024.html">Tahun 2024</a></li>
+  </ul>
+</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container d-flex align-items-center flex-column">
+        <h1 class="masthead-heading text-uppercase mb-0">Pemodelan Konsentrasi CO</h1>
+        <div class="divider-custom divider-light">
+          <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <p class="masthead-subheading font-weight-light mb-0">Provinsi DKI Jakarta | Tahun 2020-2024</p>
+      </div>
+    </header>
+
+<section class="page-section bg-light py-5" id="permasalahan">
+  <div class="container">
+    <h2 class="text-center mb-4">Latar Belakang</h2>
+
+    <div class="row align-items-center">
+      <!-- Kolom Teks -->
+      <div class="col-md-7">
+        <p style="text-align: justify; font-size: 1.1rem;">
+          Kota-kota besar di Indonesia saat ini tengah menghadapi tantangan serius dalam pengelolaan kualitas udara, khususnya yang berkaitan dengan polusi karbon monoksida (CO) 🚫. Aktivitas manusia yang semakin padat, seperti transportasi, industri, serta pertumbuhan permukiman yang pesat, memperburuk kondisi lingkungan udara terutama di wilayah metropolitan seperti <strong>Jakarta</strong>, <strong>Bandung</strong>, dan <strong>Surabaya</strong>.
+        </p>
+        <p style="text-align: justify; font-size: 1.1rem;">
+          Meskipun teknologi penginderaan jauh telah menyediakan berbagai data lingkungan secara berkala 🌍, integrasi data spasial dengan variabel-variabel seperti <em>NDVI</em>, curah hujan, suhu udara, dan kepadatan penduduk masih belum dimanfaatkan secara optimal untuk menganalisis pola penyebaran CO.
+        </p>
+        <p style="text-align: justify; font-size: 1.1rem;">
+          Oleh karena itu, diperlukan pendekatan analisis spasial berbasis data geospasial yang dapat menjelaskan keterkaitan antara polusi udara dan faktor-faktor penyebabnya secara lebih menyeluruh. Penelitian ini hadir sebagai jawaban atas kebutuhan pemetaan kualitas udara yang akurat dan komprehensif 💡.
+        </p>
+      </div>
+
+      <!-- Kolom Gambar -->
+      <div class="col-md-5 text-center">
+        <img src="assets/img/AVATAR.png" alt="Ilustrasi Permasalahan" class="img-fluid rounded-4 shadow" style="max-width: 80%; height: auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="page-section bg-primary text-white" id="tujuan">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4" style="font-size: 2.5rem;">
+      Tujuan Penelitian
+    </h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-3 mb-4 animate__animated animate__fadeInUp">
+        <div class="bg-white text-dark rounded p-4 shadow-sm h-100 border-start border-5 border-danger">
+          <h5 class="fw-bold mb-2">🎯 Tujuan 1</h5>
+          <p class="mb-0">Mengetahui gambaran umum konsentrasi karbon monoksida POI di DKI Jakarta tahun 2020–2024.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="bg-white text-dark rounded p-4 shadow-sm h-100 border-start border-5 border-warning">
+          <h5 class="fw-bold mb-2">🎯 Tujuan 2</h5>
+          <p class="mb-0">Mendapatkan model terbaik untuk menjelaskan konsentrasi karbon monoksida POI di DKI Jakarta.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4 animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="bg-white text-dark rounded p-4 shadow-sm h-100 border-start border-5 border-success">
+          <h5 class="fw-bold mb-2">🎯 Tujuan 3</h5>
+          <p class="mb-0">Memetakan hasil model terbaik dari konsentrasi karbon monoksida di setiap lokasi POI.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4 animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="bg-white text-dark rounded p-4 shadow-sm h-100 border-start border-5 border-primary">
+          <h5 class="fw-bold mb-2">🎯 Tujuan 4</h5>
+          <p class="mb-0">Membangun dashboard interaktif spasial dan temporal distribusi CO di DKI Jakarta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: RUANG LINGKUP PENELITIAN -->
+<section id="ruanglingkup" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Ruang Lingkup Penelitian</h2>
+    <p class="lead text-center mb-5">Penelitian ini mencakup tiga aspek utama, yaitu lokasi penelitian, variabel penelitian, dan kategori POI (Point of Interest). Silakan klik pada setiap kotak di bawah ini untuk melihat informasi lebih lanjut.</p>
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow h-100 ruanglingkup-card" onclick="toggleContent('lokus')">
+          <div class="card-body">
+            <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+            <h5 class="card-title">Lokus Penelitian</h5>
+            <p class="card-text">Wilayah administratif yang menjadi fokus kajian spasial karbon monoksida di DKI Jakarta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow h-100 ruanglingkup-card" onclick="toggleContent('variabel')">
+          <div class="card-body">
+            <i class="fas fa-database fa-2x text-success mb-3"></i>
+            <h5 class="card-title">Variabel Penelitian</h5>
+            <p class="card-text">Data spasial dan lingkungan yang digunakan untuk menganalisis tingkat karbon monoksida.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow h-100 ruanglingkup-card" onclick="toggleContent('poi')">
+          <div class="card-body">
+            <i class="fas fa-layer-group fa-2x text-warning mb-3"></i>
+            <h5 class="card-title">Kategori POI</h5>
+            <p class="card-text">Klasifikasi tempat berdasarkan fungsinya yang digunakan untuk analisis spasial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="lokus" class="ruanglingkup-content mt-4" style="display:none">
+      <h4 class="mb-3">Lokus Penelitian</h4>
+      <p>Penelitian ini dilakukan di Provinsi DKI Jakarta yang terdiri dari lima wilayah administratif, yaitu Jakarta Pusat, Jakarta Utara, Jakarta Selatan, Jakarta Timur, dan Jakarta Barat.</p>
+    </div>
+
+    <div id="variabel" class="ruanglingkup-content mt-4" style="display:none">
+      <h4 class="mb-3">Variabel Penelitian</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="table-primary">
+            <tr>
+              <th>No</th>
+              <th>Variabel</th>
+              <th>Sumber Data</th>
+              <th>Satuan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Karbon Monoksida (y)</td><td>Sentinel-5P</td><td>mmol/m²</td></tr>
+            <tr><td>2</td><td>Kepadatan Penduduk (x1)</td><td>WorldPop</td><td>jiwa/km²</td></tr>
+            <tr><td>3</td><td>Ketinggian Wilayah (x2)</td><td>SRTM</td><td>mdpl</td></tr>
+            <tr><td>4</td><td>NDVI (x3)</td><td>Sentinel-2</td><td>-</td></tr>
+            <tr><td>5</td><td>Kecepatan Angin (x4)</td><td>ECMWF</td><td>m/s</td></tr>
+            <tr><td>6</td><td>Suhu Udara (x5)</td><td>ECMWF</td><td>°C</td></tr>
+            <tr><td>7</td><td>Kelembaban Relatif Udara (x6)</td><td>ECMWF</td><td>%</td></tr>
+            <tr><td>8</td><td>Curah Hujan (x7)</td><td>Laporan BMKG Tahun 2024</td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="poi" class="ruanglingkup-content mt-4" style="display:none">
+      <h4 class="mb-3">Kategori POI (Point of Interest)</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="table-warning">
+            <tr>
+              <th>No</th>
+              <th>Kategori</th>
+              <th>Jenis Tempat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Perjalanan dan Transportasi</td><td>SPBU, Stasiun MRT, LRT, KAI, Terminal, Halte Transjakarta</td></tr>
+            <tr><td>2</td><td>Tempat Tinggal</td><td>Rumah Susun, Apartemen, Hotel</td></tr>
+            <tr><td>3</td><td>Perguruan Tinggi dan Universitas</td><td>Akademi, Universitas, Institut, Sekolah Tinggi</td></tr>
+            <tr><td>4</td><td>Acara</td><td>Convention Center, Wedding Venue, Event Venue</td></tr>
+            <tr><td>5</td><td>Hiburan Malam</td><td>Bar, Club malam</td></tr>
+            <tr><td>6</td><td>Luar Ruangan dan Rekreasi</td><td>Tempat Wisata, Taman Kota</td></tr>
+            <tr><td>7</td><td>Makanan</td><td>Cafe, Restoran, Bakery</td></tr>
+            <tr><td>8</td><td>Seni dan Hiburan</td><td>Galeri Seni, Museum, Teater</td></tr>
+            <tr><td>9</td><td>Tempat Profesional dan Lainnya</td><td>Gedung Perkantoran, Kantor Pemerintahan</td></tr>
+            <tr><td>10</td><td>Toko dan Layanan</td><td>Shopping Mall</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleContent(id) {
+  document.querySelectorAll('.ruanglingkup-content').forEach(el => el.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
+</script>
+<section class="page-section bg-primary text-white" id="manfaat">
+  <div class="container">
+    <h2 class="text-center mb-4">Manfaat</h2>
+
+<div class="text-center mb-4">
+  <button class="btn btn-outline-light me-2 manfaat-btn active" onclick="tampilkanManfaat('teoritis', this)">📘 Teoritis</button>
+  <button class="btn btn-outline-light manfaat-btn" onclick="tampilkanManfaat('praktis', this)">🛠️ Praktis</button>
+</div>
+
+
+    <div id="teoritis" class="row g-4 justify-content-center manfaat-content">
+      <div class="col-md-6 col-lg-3">
+        <div class="manfaat-card">
+          <h5>📍 Analisis POI</h5>
+          <p>Menambah wawasan akademik dalam analisis spasial berbasis Point of Interest.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="manfaat-card">
+          <h5>⛰️ Ketinggian vs Udara</h5>
+          <p>Memberi bukti empiris hubungan ketinggian dengan kualitas udara secara spasial.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="manfaat-card">
+          <h5>🌐 POI Google Maps</h5>
+          <p>Menjelaskan penggunaan data POI publik dalam studi lingkungan.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="manfaat-card">
+          <h5>🧠 Metode GWPR</h5>
+          <p>Memberikan contoh penggunaan GWPR dalam analisis spasial kualitas udara.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="praktis" class="row g-4 justify-content-center manfaat-content d-none">
+      <div class="col-md-6 col-lg-4">
+        <div class="manfaat-card">
+          <h5>📝 Untuk Penulis</h5>
+          <p>Mengembangkan kemampuan dalam riset spasial dan visualisasi data geospasial.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="manfaat-card">
+          <h5>🎓 Untuk Akademik</h5>
+          <p>Memberi kontribusi dalam pengembangan literatur spasial berbasis data publik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function switchTab(tabId, button) {
+    // Sembunyikan semua konten
+    document.querySelectorAll('.manfaat-content').forEach(c => c.classList.add('d-none'));
+    // Tampilkan konten yang dipilih
+    document.getElementById(tabId).classList.remove('d-none');
+
+    // Nonaktifkan semua tombol
+    document.querySelectorAll('.manfaat-tab').forEach(btn => btn.classList.remove('active'));
+    // Aktifkan tombol yang diklik
+    button.classList.add('active');
+  }
+</script>
+
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="text-uppercase mb-4">Tentang Website Ini</h4>
+            <p class="lead mb-0">
+              Website ini menyajikan hasil pemodelan spasial dan temporal konsentrasi karbon monoksida (CO) di DKI Jakarta menggunakan pendekatan Point of Interest pada tahun 2020–2024.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function tampilkanManfaat(id, btn) {
+    // Sembunyikan semua konten manfaat
+    document.querySelectorAll('.manfaat-content').forEach(c => {
+      c.classList.add('d-none');
+    });
+
+    // Tampilkan konten yang dipilih
+    const kontenAktif = document.getElementById(id);
+    kontenAktif.classList.remove('d-none');
+
+    // Update tombol aktif
+    document.querySelectorAll('.manfaat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Tampilkan "Teoritis" secara default saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", function () {
+    const defaultBtn = document.querySelector('.manfaat-btn.active');
+    if (defaultBtn) {
+      tampilkanManfaat('teoritis', defaultBtn);
+    }
+  });
+</script>
+
+  </body>
+</html>
