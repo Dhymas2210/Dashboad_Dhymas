@@ -54,6 +54,29 @@
     .dt-buttons {
   margin-left: 10px;
 }
+#scatterPlotContainer {
+  gap: 15px;
+  width: 100%;
+}
+
+.scatter-box {
+  flex: 1 1 calc(33.33% - 20px); /* 3 kolom per baris */
+  max-width: calc(33.33% - 20px);
+  min-width: 250px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.scatter-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
 
   </style>
 </head>
@@ -97,20 +120,78 @@
   <div class="container mt-4">
     <div class="panel">
       <h3 class="panel-title">Peta Titik Konsentrasi CO</h3>
-      <label for="kategoriFilter">Filter Kategori Aktivitas:</label>
-      <select id="kategoriFilter" class="form-select mb-2">
-        <option value="">Semua</option>
-        <option value="Perjalanan dan Transportasi">Perjalanan dan Transportasi</option>
-        <option value="Tempat Tinggal">Tempat Tinggal</option>
-        <option value="Perguruan Tinggi dan Universitas">Perguruan Tinggi dan Universitas</option>
-        <option value="Acara">Acara</option>
-        <option value="Hiburan Malam">Hiburan Malam</option>
-        <option value="Luar Ruangan dan Rekreasi">Luar Ruangan dan Rekreasi</option>
-        <option value="Makanan">Makanan</option>
-        <option value="Seni dan Hiburan">Seni dan Hiburan</option>
-        <option value="Tempat Profesional dan Lainnya">Tempat Profesional dan Lainnya</option>
-        <option value="Toko dan Layanan">Toko dan Layanan</option>
-      </select>
+      <div class="d-flex flex-wrap gap-3 mb-3">
+  <div>
+    <label for="kategoriFilter">Kategori Aktivitas:</label>
+    <select id="kategoriFilter" class="form-select">
+      <option value="">Semua</option>
+      <option value="Perjalanan dan Transportasi">Perjalanan dan Transportasi</option>
+      <option value="Tempat Tinggal">Tempat Tinggal</option>
+      <option value="Perguruan Tinggi dan Universitas">Perguruan Tinggi dan Universitas</option>
+      <option value="Acara">Acara</option>
+      <option value="Hiburan Malam">Hiburan Malam</option>
+      <option value="Luar Ruangan dan Rekreasi">Luar Ruangan dan Rekreasi</option>
+      <option value="Makanan">Makanan</option>
+      <option value="Seni dan Hiburan">Seni dan Hiburan</option>
+      <option value="Tempat Profesional dan Lainnya">Tempat Profesional dan Lainnya</option>
+      <option value="Toko dan Layanan">Toko dan Layanan</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="poiFilter">Kategori POI:</label>
+    <select id="poiFilter" class="form-select">
+      <option value="">Semua</option>
+      <option value="SPBU">SPBU</option>
+      <option value="Hotel">Hotel</option>
+      <option value="Restoran">Restoran</option>
+      <option value="Cafe">Cafe</option>
+      <option value="Apartemen">Apartemen</option>
+      <option value="Bar">Bar</option>
+      <option value="Galeri Seni">Galeri Seni</option>
+      <option value="Shopping Mall">Shopping Mall</option>
+      <option value="Bakery">Bakery</option>
+      <option value="Akademi">Akademi</option>
+      <option value="Convention Center">Convention Center</option>
+      <option value="Tempat Wisata">Tempat Wisata</option>
+      <option value="Perkantoran">Perkantoran</option>
+      <option value="Cake Shop">Cake Shop</option>
+      <option value="Halte TJ">Halte TJ</option>
+      <option value="Club Malam">Club Malam</option>
+      <option value="Stasiun KAI">Stasiun KAI</option>
+      <option value="Museum">Museum</option>
+      <option value="Rumah Susun">Rumah Susun</option>
+      <option value="Taman Kota">Taman Kota</option>
+      <option value="Pemerintahan">Pemerintahan</option>
+      <option value="Wedding Venue">Wedding Venue</option>
+      <option value="Event Venue">Event Venue</option>
+      <option value="Function Foom Facility">Function Foom Facility</option>
+      <option value="Universitas">Universitas</option>
+      <option value="Stasiun MRT">Stasiun MRT</option>
+      <option value="Stasiun LRT">Stasiun LRT</option>
+      <option value="Institut">Institut</option>
+      <option value="Teater">Teater</option>
+      <option value="Sekolah Tinggi">Sekolah Tinggi</option>
+      <option value="Exhibition and Trade Centre">Exhibition and Trade Centre</option>
+      <option value="Politeknik">Politeknik</option>
+      <option value="Terminal Bus">Terminal Bus</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="kotaFilter">Kota:</label>
+    <select id="kotaFilter" class="form-select">
+      <option value="">Semua</option>
+<option value="JAKARTA PUSAT">JAKARTA PUSAT</option>
+<option value="JAKARTA BARAT">JAKARTA BARAT</option>
+<option value="JAKARTA TIMUR">JAKARTA TIMUR</option>
+<option value="JAKARTA SELATAN">JAKARTA SELATAN</option>
+<option value="JAKARTA UTARA">JAKARTA UTARA</option>
+
+    </select>
+  </div>
+</div>
+
       <div id="map">
         <button class="btn btn-secondary info-toggle-btn toggle-left" onclick="toggleExplainer()">Keterangan Variabel</button>
         <div class="info explainer-toggle" id="explainerInfo">
@@ -136,6 +217,16 @@
       </div>
     </div>
   </div>
+
+ <div class="container mt-4">
+  <div class="panel">
+    <h3 class="panel-title">Scatter Plot Hasil Pemodelan CO</h3>
+    <div style="overflow-x: auto;">
+      <div id="scatterPlotContainer" class="d-flex flex-wrap justify-content-between"></div>
+    </div>
+  </div>
+</div>
+
 
 
   <footer class="footer text-center">
@@ -209,18 +300,18 @@
       { title: 'Title', data: 'title' },
       { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
       { title: 'Intercept', data: 'Intercept' },
-      { title: 'Model Kepadatan', data: 'Model_Kepadatan' },
-      { title: 'Model Ketinggian', data: 'Model_Ketinggian' },
-      { title: 'Model NDBI', data: 'Model_NDBI' },
-      { title: 'Model NDVI', data: 'Model_NDVI' },
-      { title: 'Model Kecepatan Angin', data: 'Model_KecepatanAngin' },
-      { title: 'Model RH', data: 'Model_RH' },
-      { title: 'Model Suhu', data: 'Model_Suhu' },
-      { title: 'Model Curah Hujan', data: 'Model_CurahHujan' },
-      { title: 'Model Tekanan Atmosfer', data: 'Model_TekananAtmosfer' },
-      { title: 'Model Covid', data: 'Model_Covid' },
-      { title: 'Local R2', data: 'Local_R2' },
-      { title: 'Signif Vars', data: 'signif_vars' }
+       { title: 'Model Kepadatan', data: 'Kepadatan_Penduduk' },
+          { title: 'Model Ketinggian', data: 'Ketinggian_Wilayah' },
+          { title: 'Model NDBI', data: 'NDBI' },
+          { title: 'Model NDVI', data: 'NDVI' },
+          { title: 'Model Kecepatan Angin', data: 'Kecepatan_Angin' },
+          { title: 'Model RH', data: 'RH' },
+          { title: 'Model Suhu', data: 'Suhu' },
+          { title: 'Model Curah Hujan', data: 'Curah_Hujan' },
+          { title: 'Model Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
+          { title: 'Model Covid', data: 'Covid' },
+          { title: 'Local R2', data: 'Local_R2' },
+          { title: 'Signif Vars', data: 'signif_vars' }
     ]
   });
 }
@@ -259,49 +350,66 @@
     }
 
     function updateMap() {
-      if (geojsonLayer) map.removeLayer(geojsonLayer);
-      if (legend) map.removeControl(legend);
+  if (geojsonLayer) map.removeLayer(geojsonLayer);
+  if (legend) map.removeControl(legend);
 
-      const kategori = document.getElementById('kategoriFilter').value;
-      const filtered = allFeatures.filter(f => !kategori || f.properties["Kategori Aktivitas Utama"] === kategori);
+  const kategori = document.getElementById('kategoriFilter').value;
+  const kategoriPOI = document.getElementById('poiFilter').value;
+  const kota = document.getElementById('kotaFilter').value;
 
-      generateSignifColorMap(filtered);
+  const filtered = allFeatures.filter(f => {
+    const props = f.properties;
+    const matchKategori = !kategori || props["Kategori Aktivitas Utama"] === kategori;
+    const matchPOI = !kategoriPOI || props["Kategori POI"] === kategoriPOI;
+    const matchKota = !kota || props["Kota"] === kota;
+    return matchKategori && matchPOI && matchKota;
+  });
 
-      geojsonLayer = L.geoJSON({ type: 'FeatureCollection', features: filtered }, {
-        onEachFeature: function (feature, layer) {
-          const props = feature.properties;
-          const popupContent = `
-            <b>${props.title}</b><br>
-            Kategori: ${props["Kategori Aktivitas Utama"]}<br>
-            Signif Vars: ${props.signif_vars}<br>
-            <a href='${props.link}' target='_blank'>Lihat di Gmaps</a>
-          `;
-          layer.bindPopup(popupContent);
-        },
-        pointToLayer: (f, latlng) => L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: getColorBySignifVars(f.properties['signif_vars']),
-          color: '#000',
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.8
-        })
-      }).addTo(map);
+  generateSignifColorMap(filtered);
 
-      fillTabelAwal(filtered.map(f => f.properties));
-      fillTabelModel(filtered.map(f => f.properties));
+  geojsonLayer = L.geoJSON({ type: 'FeatureCollection', features: filtered }, {
+    onEachFeature: function (feature, layer) {
+      const props = feature.properties;
+      const popupContent = `
+        <b>${props.title}</b><br>
+        Kategori Aktivitas Utama: ${props["Kategori Aktivitas Utama"]}<br>
+        Kategori POI: ${props["Kategori POI"]}<br>
+        Kota: ${props["Kota"]}<br>
+        yhat: ${props.yhat}<br>
+        Signif Vars: ${props.signif_vars}<br>
+        <a href='${props.link}' target='_blank'>Lihat di Gmaps</a>
+      `;
+      layer.bindPopup(popupContent);
+    },
+    pointToLayer: (f, latlng) => L.circleMarker(latlng, {
+      radius: 6,
+      fillColor: getColorBySignifVars(f.properties['signif_vars']),
+      color: '#000',
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.8
+    })
+  }).addTo(map);
 
-      legend = L.control({ position: 'bottomright' });
-      legend.onAdd = function () {
-        const div = L.DomUtil.create("div", "info legend");
-        const keys = Object.keys(signifColorMap);
-        div.innerHTML = keys.map(k => `<i style="background:${signifColorMap[k]}"></i> ${k}`).join("<br>");
-        return div;
-      };
-      legend.addTo(map);
-    }
+  fillTabelAwal(filtered.map(f => f.properties));
+  fillTabelModel(filtered.map(f => f.properties));
+  const tahun = 2021;
+  updateScatterPlot(tahun);
+
+  legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create("div", "info legend");
+    const keys = Object.keys(signifColorMap);
+    div.innerHTML = keys.map(k => `<i style="background:${signifColorMap[k]}"></i> ${k}`).join("<br>");
+    return div;
+  };
+  legend.addTo(map);
+}
 
     document.getElementById('kategoriFilter').addEventListener('change', updateMap);
+document.getElementById('poiFilter').addEventListener('change', updateMap);
+document.getElementById('kotaFilter').addEventListener('change', updateMap);
+
 
     function fillTabelAwal(data) {
       $('#dataAwalTable').DataTable({
@@ -338,23 +446,121 @@
           { title: 'Title', data: 'title' },
           { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
           { title: 'Intercept', data: 'Intercept' },
-          { title: 'Model Kepadatan', data: 'Model_Kepadatan' },
-          { title: 'Model Ketinggian', data: 'Model_Ketinggian' },
-          { title: 'Model NDBI', data: 'Model_NDBI' },
-          { title: 'Model NDVI', data: 'Model_NDVI' },
-          { title: 'Model Kecepatan Angin', data: 'Model_KecepatanAngin' },
-          { title: 'Model RH', data: 'Model_RH' },
-          { title: 'Model Suhu', data: 'Model_Suhu' },
-          { title: 'Model Curah Hujan', data: 'Model_CurahHujan' },
-          { title: 'Model Tekanan Atmosfer', data: 'Model_TekananAtmosfer' },
-          { title: 'Model Covid', data: 'Model_Covid' },
+          { title: 'Model Kepadatan', data: 'Kepadatan_Penduduk' },
+          { title: 'Model Ketinggian', data: 'Ketinggian_Wilayah' },
+          { title: 'Model NDBI', data: 'NDBI' },
+          { title: 'Model NDVI', data: 'NDVI' },
+          { title: 'Model Kecepatan Angin', data: 'Kecepatan_Angin' },
+          { title: 'Model RH', data: 'RH' },
+          { title: 'Model Suhu', data: 'Suhu' },
+          { title: 'Model Curah Hujan', data: 'Curah_Hujan' },
+          { title: 'Model Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
+          { title: 'Model Covid', data: 'Covid' },
           { title: 'Local R2', data: 'Local_R2' },
           { title: 'Signif Vars', data: 'signif_vars' }
         ]
       });
     }
+
+    function updateScatterPlot(tahun) {
+  const scatterPlotDiv = document.getElementById('scatterPlotContainer');
+  scatterPlotDiv.innerHTML = ''; // Bersihkan isi sebelumnya
+
+  const variables = [
+    'Curah_Hujan',
+    'Kecepatan_Angin',
+    'Kepadatan_Penduduk',
+    'Ketinggian_Wilayah',
+    'NDBI',
+    'NDVI',
+    'RH',
+    'Suhu',
+    'Tekanan_Atmosfer'
+  ];
+
+  variables.forEach(varName => {
+    const fileName = `scatter_CO_vs_${varName}_${tahun}.png`;
+    const filePath = `scatter/${fileName}`;
+    
+    const box = document.createElement('div');
+    box.className = 'scatter-box';
+    box.innerHTML = `
+      <strong>${varName.replaceAll('_', ' ')}</strong><br>
+      <img src="${filePath}" alt="${varName}" onerror="this.style.display='none'">
+    `;
+    scatterPlotDiv.appendChild(box);
+  });
+}
+
   </script>
 
+<script>
+  function updateScatterImage() {
+    const tahun = document.getElementById('tahun').value;
+    const variabel = document.getElementById('variabel').value;
+    const img = document.getElementById('scatterImage');
+
+    if (tahun && variabel) {
+      img.src = `scatter/scatter_CO_vs_${variabel}_${tahun}.png`;
+    }
+  }
+
+  document.getElementById('tahun').addEventListener('change', updateScatterImage);
+  document.getElementById('variabel').addEventListener('change', updateScatterImage);
+</script>
+<script>
+// Mapping Kategori ke Jenis Tempat
+const kategoriPOIMapping = {
+  "Perjalanan dan Transportasi": [
+    "SPBU", "Stasiun MRT", "Stasiun LRT", "Stasiun KAI", "Terminal Bus", "Halte Transjakarta"
+  ],
+  "Tempat Tinggal": [
+    "Rumah Susun", "Apartemen", "Hotel"
+  ],
+  "Perguruan Tinggi dan Universitas": [
+    "Akademi", "Universitas", "Institut", "Sekolah Tinggi"
+  ],
+  "Acara": [
+    "Convention Center", "Wedding Venue", "Function Room Facility", "Event Venue", "Exhibition and Trade Center"
+  ],
+  "Hiburan Malam": [
+    "Bar", "Club malam"
+  ],
+  "Luar Ruangan dan Rekreasi": [
+    "Tempat Wisata", "Taman Kota"
+  ],
+  "Makanan": [
+    "Cafe", "Restoran", "Bakery", "Cake Shop"
+  ],
+  "Seni dan Hiburan": [
+    "Galeri Seni", "Museum", "Teater"
+  ],
+  "Tempat Profesional dan Lainnya": [
+    "Gedung Perkantoran", "Kantor Pemerintahan"
+  ],
+  "Toko dan Layanan": [
+    "Shopping Mall"
+  ]
+};
+
+// Logika cascading dropdown (Kategori -> POI)
+document.getElementById("kategoriFilter").addEventListener("change", function () {
+  const selectedKategori = this.value;
+  const poiDropdown = document.getElementById("poiFilter");
+
+  // Kosongkan dropdown POI
+  poiDropdown.innerHTML = "<option value=''>Semua</option>";
+
+  if (kategoriPOIMapping[selectedKategori]) {
+    kategoriPOIMapping[selectedKategori].forEach(poi => {
+      const option = document.createElement("option");
+      option.value = poi;
+      option.textContent = poi;
+      poiDropdown.appendChild(option);
+    });
+  }
+});
+</script>
 
 </body>
 </html>
