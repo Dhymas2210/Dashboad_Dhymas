@@ -5,8 +5,8 @@
 <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" rel="stylesheet">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Hasil Pemodelan CO - DKI Jakarta</title>
-  <link rel="icon" type="image/png" href="assets/img/iconco.png" />
+   <title>Hasil Pemodelan CO di Jakarta</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -83,21 +83,21 @@
 <body>
 
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <div class="container">
-      <div class="navbar-brand d-flex align-items-center">
-        <img src="assets/img/logi.png" alt="" class="logo-stis">
-        <span class="judul-header">SPASIAL CO JAKARTA</span>
-      </div>
-      <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-        Menu <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#permasalahan">Permasalahan</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#tujuan">Tujuan</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#ruanglingkup">Ruang Lingkup</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#manfaat">Manfaat</a></li>
-          <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" href="index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hasil Pemodelan</a>
+      <div class="container">
+      <a href="index.html" class="navbar-brand d-flex align-items-center text-white text-decoration-none">
+  <img src="assets/img/logi.png" alt="Logo" class="logo-stis">
+  <span class="judul-header">SPASIAL CO JAKARTA</span>
+</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+          Menu <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded small" href="index.html#permasalahan">Permasalahan</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded small" href="index.html#tujuan">Tujuan</a></li>
+             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded small" href="index.html#ruanglingkup" >Ruang Lingkup</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded small" href="index.html#manfaat">Manfaat</a></li>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded small" href="index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pemodelan</a>
           <ul class="dropdown-menu dropdown-menu-end text-center">
             <li><a class="dropdown-item" href="2020.html">Tahun 2020</a></li>
             <li><a class="dropdown-item" href="2021.html">Tahun 2021</a></li>
@@ -105,15 +105,21 @@
             <li><a class="dropdown-item" href="2023.html">Tahun 2023</a></li>
             <li><a class="dropdown-item" href="2024.html">Tahun 2024</a></li>
           </ul>
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-      <h2 class="masthead-heading text-mb-0">Hasil Pemodelan Konsentrasi CO</h2>
-      <p class="masthead-subheading font-weight-light mb-0">Provinsi DKI Jakarta | Tahun 2021</p>
+      <h2 class="masthead-heading mb-0">Hasil Pemodelan Konsentrasi CO</h2>
+      
+      <!-- Divider dengan teks di tengah -->
+    <div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 15px; margin-bottom: 10px;">
+      <div style="height: 1px; background-color: white; width: 20%;"></div>
+      <span style="margin: 0 15px; font-size: 1.1rem;">Jakarta | Tahun 2020–2024</span>
+      <div style="height: 1px; background-color: white; width: 20%;"></div>
+    </div>
     </div>
   </header>
 
@@ -122,7 +128,7 @@
       <h3 class="panel-title">Peta Titik Konsentrasi CO</h3>
       <div class="d-flex flex-wrap gap-3 mb-3">
   <div>
-    <label for="kategoriFilter">Kategori Aktivitas:</label>
+    <label for="kategoriFilter">Kategori Aktivitas Utama:</label>
     <select id="kategoriFilter" class="form-select">
       <option value="">Semua</option>
       <option value="Perjalanan dan Transportasi">Perjalanan dan Transportasi</option>
@@ -205,7 +211,7 @@
           X7: Kelembaban Relatif Udara<br>
           X8: Curah Hujan<br>
           X9: Tekanan Atmosfer<br>
-          X10: Dummy COVID-19
+          X10: Pandemi COVID-19
         </div>
       </div>
     </div>
@@ -220,7 +226,7 @@
 
  <div class="container mt-4">
   <div class="panel">
-    <h3 class="panel-title">Scatter Plot Hasil Pemodelan CO</h3>
+    <h3 class="panel-title">Scatter Plot Variabel Prediktor terhadap CO Tahun 2021</h3>
     <div style="overflow-x: auto;">
       <div id="scatterPlotContainer" class="d-flex flex-wrap justify-content-between"></div>
     </div>
@@ -240,13 +246,19 @@
         </p>
 
         <!-- GARIS PEMBATAS -->
-        <div style="display: flex; justify-content: center; margin: 2.5rem 0;">
-          <div style="height: 1px; background-color: white; width: 96%; max-width: 1400px;"></div>
+        <div style="display: flex; justify-content: center; margin: 1rem 0;">
+          <div style="height: 1px; background-color: white; width: 80%; max-width: 1400px;"></div>
         </div>
 
-        <p class="lead mb-0">
-          <em>Dikembangkan sebagai bagian dari upaya diseminasi hasil penelitian kualitas udara Jakarta | 2020–2024</em>
+        <p class="lead mb-2">
+          <em>Dikembangkan sebagai bagian dari upaya diseminasi hasil penelitian kualitas udara Jakarta | Tahun 2020–2024</em>
         </p>
+
+        <!-- COPYRIGHT -->
+        <p class="mt-3 mb-0" style="font-size: 0.9rem; color: #ccc;">
+          &copy; Dhymas Adhyza Rayhan | 2025
+        </p>
+
       </div>
     </div>
   </div>
@@ -310,18 +322,18 @@
       { title: 'Title', data: 'title' },
       { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
       { title: 'Intercept', data: 'Intercept' },
-       { title: 'Model Kepadatan', data: 'Kepadatan_Penduduk' },
-          { title: 'Model Ketinggian', data: 'Ketinggian_Wilayah' },
-          { title: 'Model NDBI', data: 'NDBI' },
-          { title: 'Model NDVI', data: 'NDVI' },
-          { title: 'Model Kecepatan Angin', data: 'Kecepatan_Angin' },
-          { title: 'Model RH', data: 'RH' },
-          { title: 'Model Suhu', data: 'Suhu' },
-          { title: 'Model Curah Hujan', data: 'Curah_Hujan' },
-          { title: 'Model Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
-          { title: 'Model Covid', data: 'Covid' },
+       { title: 'Kepadatan Penduduk', data: 'Kepadatan_Penduduk' },
+          { title: 'Ketinggian Wilayah', data: 'Ketinggian_Wilayah' },
+          { title: 'NDBI', data: 'NDBI' },
+          { title: 'NDVI', data: 'NDVI' },
+          { title: 'Kecepatan Angin', data: 'Kecepatan_Angin' },
+          { title: 'Kelembaban Relatif Udara', data: 'RH' },
+          { title: 'Suhu Udara', data: 'Suhu' },
+          { title: 'Curah Hujan', data: 'Curah_Hujan' },
+          { title: 'Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
+          { title: 'Pandemi Covid-19', data: 'Covid' },
           { title: 'Local R2', data: 'Local_R2' },
-          { title: 'Signif Vars', data: 'signif_vars' }
+          { title: 'Kombinasi Variabel Signifikan', data: 'signif_vars' }
     ]
   });
 }
@@ -385,7 +397,7 @@
         Kategori Aktivitas Utama: ${props["Kategori Aktivitas Utama"]}<br>
         Kategori POI: ${props["Kategori POI"]}<br>
         Kota: ${props["Kota"]}<br>
-        yhat: ${props.yhat}<br>
+        Status CO: ${props["yhat baru"]}<br>
         Signif Vars: ${props.signif_vars}<br>
         <a href='${props.link}' target='_blank'>Lihat di Gmaps</a>
       `;
@@ -425,25 +437,24 @@ document.getElementById('kotaFilter').addEventListener('change', updateMap);
       $('#dataAwalTable').DataTable({
         destroy: true,
         data,
-        columns: [
-          { title: 'Link', data: 'link', render: data => `<a href="${data}" target="_blank">Lihat</a>` },
-          { title: 'Title', data: 'title' },
-          { title: 'Kecamatan', data: 'Kecamatan' },
-          { title: 'Kelurahan', data: 'Kelurahan' },
-          { title: 'Kota', data: 'Kota' },
-          { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
-          { title: 'Tahun', data: 'Tahun' },
-          { title: 'Kepadatan Penduduk', data: 'Kepadatan Penduduk' },
-          { title: 'Ketinggian', data: 'Ketinggian Wilayah' },
-          { title: 'CO', data: 'CO' },
+         columns: [
+      { title: 'Link', data: 'link', render: data => `<a href="${data}" target="_blank">Lihat</a>` },
+      { title: 'Title', data: 'title' },
+      { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
+      { title: 'Intercept', data: 'Intercept' },
+       { title: 'Kepadatan Penduduk', data: 'Kepadatan_Penduduk' },
+          { title: 'Ketinggian Wilayah', data: 'Ketinggian_Wilayah' },
           { title: 'NDBI', data: 'NDBI' },
           { title: 'NDVI', data: 'NDVI' },
-          { title: 'Curah Hujan', data: 'Curah Hujan' },
-          { title: 'Suhu', data: 'Suhu' },
-          { title: 'Kecepatan Angin', data: 'Kecepatan Angin' },
-          { title: 'RH', data: 'RH' },
-          { title: 'Tekanan Atmosfer', data: 'Tekanan Atmosfer' }
-        ]
+          { title: 'Kecepatan Angin', data: 'Kecepatan_Angin' },
+          { title: 'Kelembaban Relatif Udara', data: 'RH' },
+          { title: 'Suhu Udara', data: 'Suhu' },
+          { title: 'Curah Hujan', data: 'Curah_Hujan' },
+          { title: 'Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
+          { title: 'Pandemi Covid-19', data: 'Covid' },
+          { title: 'Local R2', data: 'Local_R2' },
+          { title: 'Kombinasi Variabel Signifikan', data: 'signif_vars' }
+    ]
       });
     }
 
@@ -456,18 +467,19 @@ document.getElementById('kotaFilter').addEventListener('change', updateMap);
           { title: 'Title', data: 'title' },
           { title: 'Kategori', data: 'Kategori Aktivitas Utama' },
           { title: 'Intercept', data: 'Intercept' },
-          { title: 'Model Kepadatan', data: 'Kepadatan_Penduduk' },
-          { title: 'Model Ketinggian', data: 'Ketinggian_Wilayah' },
-          { title: 'Model NDBI', data: 'NDBI' },
-          { title: 'Model NDVI', data: 'NDVI' },
-          { title: 'Model Kecepatan Angin', data: 'Kecepatan_Angin' },
-          { title: 'Model RH', data: 'RH' },
-          { title: 'Model Suhu', data: 'Suhu' },
-          { title: 'Model Curah Hujan', data: 'Curah_Hujan' },
-          { title: 'Model Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
-          { title: 'Model Covid', data: 'Covid' },
+          { title: 'Kepadatan Penduduk', data: 'Kepadatan_Penduduk' },
+          { title: 'Ketinggian Wilayah', data: 'Ketinggian_Wilayah' },
+          { title: 'NDBI', data: 'NDBI' },
+          { title: 'NDVI', data: 'NDVI' },
+          { title: 'Kecepatan Angin', data: 'Kecepatan_Angin' },
+          { title: 'Kelembaban Relatif Udara', data: 'RH' },
+          { title: 'Suhu Udara', data: 'Suhu' },
+          { title: 'Curah Hujan', data: 'Curah_Hujan' },
+          { title: 'Tekanan Atmosfer', data: 'Tekanan_Atmosfer' },
+          { title: 'Pandemi Covid', data: 'Covid' },
           { title: 'Local R2', data: 'Local_R2' },
-          { title: 'Signif Vars', data: 'signif_vars' }
+          { title: 'Status CO', data: 'yhat baru' },
+          { title: 'Kombinasi Variabel Signifikan', data: 'signif_vars' }
         ]
       });
     }
@@ -522,7 +534,7 @@ document.getElementById('kotaFilter').addEventListener('change', updateMap);
 // Mapping Kategori ke Jenis Tempat
 const kategoriPOIMapping = {
   "Perjalanan dan Transportasi": [
-    "SPBU", "Stasiun MRT", "Stasiun LRT", "Stasiun KAI", "Terminal Bus", "Halte Transjakarta"
+    "SPBU", "Stasiun MRT", "Stasiun LRT", "Stasiun KAI", "Terminal Bus", "Halte TJ"
   ],
   "Tempat Tinggal": [
     "Rumah Susun", "Apartemen", "Hotel"
